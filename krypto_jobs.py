@@ -58,34 +58,34 @@ w3 = Web3(Web3.HTTPProvider("HTTP://127.0.0.1:7545"))
 # * `generate_account`
 # * `get_balance`
 # * `send_transaction`
-from crypto_wallet import generate_account, get_balance, send_transaction
+# from crypto_wallet import generate_account, get_balance, send_transaction
 
 
-# 4. Within the Streamlit sidebar section of code, create a variable named
-# `account`. Set this variable equal to a call on the `generate_account`
-# function. This function will create the KryptoJobs2Go customer’s (in this
-# case, your) HD wallet and Ethereum account.
+# # 4. Within the Streamlit sidebar section of code, create a variable named
+# # `account`. Set this variable equal to a call on the `generate_account`
+# # function. This function will create the KryptoJobs2Go customer’s (in this
+# # case, your) HD wallet and Ethereum account.
 
-# Within the Streamlit sidebar section
-st.sidebar.header("KryptoJobs2Go Wallet")
+# # Within the Streamlit sidebar section
+# st.sidebar.header("KryptoJobs2Go Wallet")
 
-# Create the account using the generate_account function
-account = generate_account()
+# # Create the account using the generate_account function
+# account = generate_account()
 
 
-# 5. Within this same section of the `krypto_jobs.py` file, define a
-# new `st.sidebar.write` function that will display the balance of the
-# customer’s account. Inside this function, call the `get_balance` function
-# and pass it your Ethereum `account.address`.
+# # 5. Within this same section of the `krypto_jobs.py` file, define a
+# # new `st.sidebar.write` function that will display the balance of the
+# # customer’s account. Inside this function, call the `get_balance` function
+# # and pass it your Ethereum `account.address`.
 
-# Define a function to display the balance
-def display_balance():
-    # Call the get_balance function and pass the Ethereum account address
-    balance = get_balance(account.address)
-    st.sidebar.write(f"Account Balance: {balance} ETH")
+# # Define a function to display the balance
+# def display_balance():
+#     # Call the get_balance function and pass the Ethereum account address
+#     balance = get_balance(account.address)
+#     st.sidebar.write(f"Account Balance: {balance} ETH")
 
-# Call the display_balance function to display the balance
-display_balance()
+# # Call the display_balance function to display the balance
+# display_balance()
 
 ################################################################################
 # Step 1 - Part 3:
@@ -193,13 +193,16 @@ st.sidebar.write(account.address)
 # Write the returned ether balance to the sidebar
 # YOUR CODE HERE
 
-def display_balance():
-    # Call the get_balance function and pass your Ethereum account address
-    balance = get_balance(account.address)
-    st.sidebar.write(f"Account Balance: {balance} ETH")
 
-# Call the display_balance function to display the balance
-display_balance()
+st.sidebar.write(get_balance(w3, account.address))
+
+# def display_balance():
+#     # Call the get_balance function and pass your Ethereum account address
+#     balance = get_balance(account.address)
+#     st.sidebar.get_balance(f"Account Balance: {balance} ETH")
+
+# # Call the display_balance function to display the balance
+# display_balance()
 
 ##########################################
 

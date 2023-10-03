@@ -16,7 +16,7 @@ from bip44 import Wallet
 from eth_account import Account
 # from web3 import Account
 from web3 import Web3
-import web3
+import Web3
 from web3 import middleware
 from web3.gas_strategies.time_based import medium_gas_price_strategy
 
@@ -30,7 +30,7 @@ def generate_account():
     mnemonic = os.getenv("MNEMONIC")
 
     # Create Wallet Object
-    wallet = Wallet("swamp main gaze library sadness grit volume peanut convince purpose burden round")
+    wallet = Wallet(mnemonic)
 
     # Derive Ethereum Private Key
     private, public = wallet.derive_account("eth")
@@ -71,7 +71,7 @@ def send_transaction(w3, account, to, wage):
         "from": account.address,
         "value": value,
         "gas": gasEstimate,
-        "gasPrice": 0,
+        "gasPrice": 2000000000,
         "nonce": w3.eth.getTransactionCount(account.address),
     }
 
