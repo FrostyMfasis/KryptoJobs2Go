@@ -14,9 +14,8 @@ from dotenv import load_dotenv
 load_dotenv()
 from bip44 import Wallet
 from eth_account import Account
-# from web3 import Account
+from web3 import Account
 from web3 import Web3
-import Web3
 from web3 import middleware
 from web3.gas_strategies.time_based import medium_gas_price_strategy
 
@@ -36,7 +35,7 @@ def generate_account():
     private, public = wallet.derive_account("eth")
 
     # Convert private key into an Ethereum account
-    account = web3.eth.accounts.privateKeyToAccount(private)
+    account = Account.privateKeyToAccount(private)
 
     return account
 
